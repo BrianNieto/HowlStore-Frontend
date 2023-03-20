@@ -1,0 +1,99 @@
+*{
+  box-sizing: border-box;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid;
+  width: 50%;
+  border-radius: 30px;
+  margin: 20px auto;
+  background-color: grey;
+}
+
+.login{
+  padding: 40px 5px;
+  width: 40%;
+  padding: 30px;
+  margin: 0;
+}
+
+.register{
+  padding: 20px;
+}
+
+div, main{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+button{
+  height: 70px;
+  border-radius: 15px;
+  background-color: rgb(20, 172, 20);
+  text-transform: uppercase;
+  width: 300px;
+  margin: 10px;
+}
+
+input{
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 2px solid rgb(19, 19, 19);
+  height: 50px;
+  width: 300px;
+}
+
+.a-button{
+  color: white;
+}
+
+h1, .a-button{
+  text-transform: uppercase;
+}
+
+h1{
+  background-color: blue;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.h1-register{
+  font-size: 25px;
+}
+
+.h1-login{
+  font-size: 20px;
+}
+
+label, input{
+  font-size: 15px;
+}
+
+span{
+  color: rgb(206, 26, 26);
+}
+
+div{
+  margin : 0;
+}
+
+input:focus{
+  outline:0;
+  border: 2px solid #97d848;
+}
+
+.error{
+  color: rgb(197, 27, 27);
+  margin: 0;
+  font-size: 10px;
+}
+
+.form-container{
+  margin-top: 80px;
+  width: 100%;
+}

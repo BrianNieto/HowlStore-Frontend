@@ -1,0 +1,15 @@
+<h2>Hola, ${data.firstname} ${data.lastname}</h2>
+
+<form class = "perfilUsuario" id="perfilUsuario">
+  <h3>Datos</h3>
+  <label for="nombre">Nombre <span>*</span></label>
+  <input type="text" id="nombre" placeholder="Ingrese su nombre" value="${data.firstname}" required>
+  <label for="apellido">Apellido <span>*</span></label>
+  <input type="text" id="apellido" placeholder="Ingrese su apellido" value="${data.lastname}" required>
+  <label for="mail">e-mail <span>*</span></label>
+  <input type="text" id="mail" value="${data.mail}" readonly>
+  <label for="passwordForm">Contraseña <span>*</span></label>
+  <input type="text" id="passwordForm" placeholder="Ingrese su contraseña" value="${data.password}" required>
+
+  <button type="submit">Actualizar</button>
+</form>

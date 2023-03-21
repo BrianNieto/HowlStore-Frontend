@@ -6,9 +6,14 @@
   </div>
 
   <h2>¡Algunas de nuestras recomendaciones!</h2>
-  <div class="cards" id="div-cards">
-
+  <div class="cards" id="div-cards" *ngFor="let recomendacion of recomendaciones">
+    <div class="card">
+      <h3>{{recomendacion.nombre}}</h3>
+      <img class="img-card" src="{{recomendacion.imagen}}" alt="{{recomendacion.nombre}}">
+      <div class="card-text">
+        <p>"{{recomendacion.comentario}}"</p>
+        <p>{{recomendacion.fecha}}</p>
+      </div>
+    </div>
   </div>
-  <script src="/js/inicio.js"></script>
-  <script src="/js/tmp.js"></script>
 </main>

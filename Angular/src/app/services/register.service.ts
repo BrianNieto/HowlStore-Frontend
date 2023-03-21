@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {UserRegisterModel} from "../models/UserRegister.model";
+import {UserCompleteModel} from "../models/UserComplete.model";
 import {url} from "../config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
@@ -20,7 +20,7 @@ export class RegisterService {
     }
   }
 
-  register(userToRegister: UserRegisterModel) {
+  register(userToRegister: UserCompleteModel) {
     return this.httpClient.post(this.urlRegister,userToRegister,this.getHttpOptions())
   }
 

@@ -25,13 +25,12 @@ export class LoginComponent {
     let userToValidate:User = {mail: this.loginForm.value.mail, password : this.loginForm.value.password}
     this.service.login(userToValidate).subscribe({
                                                 next: res => {
-                                                        localStorage.setItem("mail",userToValidate.mail)
+                                                        localStorage.setItem("userId",res.toString())
                                                         this.router.navigate([""])
                                                       },
                                                 error: (err: HttpErrorResponse) => {
                                                   if (err.error instanceof Error) {
                                                     console.log('Error de cliente o red', err.error.message);
-
                                                   } else {
                                                     console.log(err.error);
                                                   }

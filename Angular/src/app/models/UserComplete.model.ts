@@ -1,6 +1,7 @@
 import {PersonaModel} from "./Persona.model";
 
-export class UserRegisterModel {
+export class UserCompleteModel {
+
   constructor(public mail:string, public password:string, public persona:PersonaModel) {
   }
 }

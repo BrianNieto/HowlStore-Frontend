@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RegisterService} from "../../services/register.service";
 import {Router} from "@angular/router";
-import {UserRegisterModel} from "../../models/UserRegister.model";
+import {UserCompleteModel} from "../../models/UserComplete.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {PersonaModel} from "../../models/Persona.model";
 
@@ -26,7 +26,7 @@ export class RegisterComponent {
 
   registerSubmit() {
     let personaToRegister:PersonaModel = {firstname:this.registerForm.value.firstname, lastname:this.registerForm.value.lastname}
-    let userToRegister:UserRegisterModel = {mail: this.registerForm.value.mail, password: this.registerForm.value.password, persona:personaToRegister}
+    let userToRegister:UserCompleteModel = {mail: this.registerForm.value.mail, password: this.registerForm.value.password, persona:personaToRegister}
     this.registerService.register(userToRegister).subscribe({
                                                               next: res => {
                                                                   this.router.navigate(["/login"])

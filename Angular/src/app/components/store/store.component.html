@@ -1,0 +1,14 @@
+<div class="div-tienda">
+  <input type="text" id="buscador">
+  <div class="div-categorias" id="div-categorias">
+    <ul id="ul-categoria" *ngFor="let category of categories">
+      <li>{{category.nombreCategoria}}</li>
+    </ul>
+  </div>
+  <div id="contenedor" class="contenedor" *ngFor="let item of items">
+    <div class="card">
+      <button class="linkProducto" id="{{item.idItem}}" (click)="seeDetails()">{{item.nombreItem}}</button>
+      <img class="img-card" src="{{item.img1}}" alt="{{item.nombreItem}}">
+    </div>
+  </div>
+</div>

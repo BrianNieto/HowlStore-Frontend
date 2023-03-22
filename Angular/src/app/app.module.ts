@@ -13,6 +13,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { StoreComponent } from './components/store/store.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     AboutusComponent,
     FooterComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    StoreComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

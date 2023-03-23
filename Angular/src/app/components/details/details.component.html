@@ -2,15 +2,15 @@
   <div class="div-carousel" id="div-carousel">
     <div class="slide">
       <div id="principal" class="principal">
-        <h3>{{localStorage.nombre}}</h3>
+        <h3 id="nombre"></h3>
         <a class="left-arrow" onclick="plusSlides(-1)">&#11164;</a>
-        <img class="img-carousel" src="${element.imagen}" alt="${localStorage.getItem('nombre')}">
+        <img class="img-carousel" src="{{img1}}" alt="{{nombre}}">
         <a class="right-arrow" onclick="plusSlides(1)">&#11166;</a>
       </div>
       <div class="detalles">
-        <div class="texto">Estado: {{localStorage.getItem('estado')}}</div>
-        <div class="texto">Tipo: {{localStorage.getItem('tipo')}}</div>
-        <div class="texto">Precio: {{localStorage.getItem('precio')}}</div>
+        <div class="texto">Estado: {{estado}}</div>
+        <div class="texto">Categoria: {{categoria}}</div>
+        <div class="texto">Precio: {{precio}}</div>
       </div>
     </div>
   </div>

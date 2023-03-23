@@ -7,7 +7,7 @@
   </div>
   <div id="contenedor" class="contenedor" *ngFor="let item of items">
     <div class="card">
-      <button class="linkProducto" id="{{item.idItem}}" (click)="seeDetails()">{{item.nombreItem}}</button>
+      <button class="linkProducto" id="{{item.idItem}}" (click)="seeDetails(item.idItem)">{{item.nombreItem}}</button>
       <img class="img-card" src="{{item.img1}}" alt="{{item.nombreItem}}">
     </div>
   </div>

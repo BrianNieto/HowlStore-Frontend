@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ProfileService} from "../../services/profile.service";
 import {UserCompleteModel} from "../../models/UserComplete.model";
 import {Form, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpErrorResponse} from "@angular/common/http";
 import {PersonaModel} from "../../models/Persona.model";
 import {Router} from "@angular/router";
 

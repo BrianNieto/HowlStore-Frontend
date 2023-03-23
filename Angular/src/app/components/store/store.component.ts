@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ItemModel} from "../../models/Item.model";
 import {StoreService} from "../../services/store.service";
 import {CategoryModel} from "../../models/Category.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-store',
@@ -13,7 +14,7 @@ export class StoreComponent {
   items:ItemModel[] = []
   categories:CategoryModel[] = []
 
-  constructor(private service:StoreService) { }
+  constructor(private service:StoreService, private router:Router) { }
 
   ngOnInit(){
     this.service.getAllItems().subscribe(
@@ -28,7 +29,9 @@ export class StoreComponent {
     )
   }
 
-  seeDetails() {
-
+  seeDetails(idItem:number) {
+    localStorage.setItem("idItem",idItem.toString());
+    this.router.navigate(["/details"])
   }
+
 }

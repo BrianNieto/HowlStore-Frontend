@@ -7,11 +7,14 @@
         <img class="img-carousel" src="{{img1}}" alt="{{nombre}}">
         <a class="right-arrow" onclick="plusSlides(1)">&#11166;</a>
       </div>
+    </div>
       <div class="detalles">
         <div class="texto">Estado: {{estado}}</div>
         <div class="texto">Categoria: {{categoria}}</div>
         <div class="texto">Precio: {{precio}}</div>
       </div>
+    <div>
+      <button (click)="comprarItem()">Comprar</button>
     </div>
-  </div>
+    </div>
 </main>

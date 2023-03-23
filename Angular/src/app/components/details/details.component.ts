@@ -1,5 +1,7 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {DetailsService} from "../../services/details.service";
+import {CompraModel} from "../../models/Compra.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-details',
@@ -15,7 +17,7 @@ export class DetailsComponent {
   img1!:string;
   img2!:string;
   img3!:string;
-  constructor(private service:DetailsService) { }
+  constructor(private service:DetailsService, private router:Router) { }
 
   ngOnInit(){
     this.service.getItem().subscribe(
@@ -30,6 +32,16 @@ export class DetailsComponent {
         console.log(res)
       }
     )
+  }
+
+  comprarItem():any {
+    let item:number = parseInt((localStorage.getItem("idItem") as string));
+    let user:number = parseInt((localStorage.getItem("idUser") as string));
+    let compra:CompraModel = {comentario:"asd",estadoPedido:"PEDIDO",idItem:item,idUser:user}
+    this.service.buyItem(compra).subscribe(
+      (res:any) => {
+        this.router.navigate(["/store"])
+      });
   }
 
 }

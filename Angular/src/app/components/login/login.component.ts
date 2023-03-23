@@ -25,7 +25,7 @@ export class LoginComponent {
     let userToValidate:User = {mail: this.loginForm.value.mail, password : this.loginForm.value.password}
     this.service.login(userToValidate).subscribe({
                                                 next: res => {
-                                                        localStorage.setItem("userId",res.toString())
+                                                        localStorage.setItem("idUser",res.toString())
                                                         this.router.navigate([""])
                                                       },
                                                 error: (err: HttpErrorResponse) => {

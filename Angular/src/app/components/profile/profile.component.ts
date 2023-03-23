@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProfileService} from "../../services/profile.service";
 import {UserCompleteModel} from "../../models/UserComplete.model";
-import {Form, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PersonaModel} from "../../models/Persona.model";
 import {Router} from "@angular/router";
 
@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   inputLastname!: HTMLInputElement;
   inputMail!: HTMLInputElement;
   inputPassword!: HTMLInputElement;
+  nombre!:string;
+  apellido!:string;
 
 
   constructor(private service: ProfileService, private formBuilder: FormBuilder, private router: Router) {
@@ -39,6 +41,8 @@ export class ProfileComponent implements OnInit {
         this.inputLastname.value = res.persona.lastname
         this.inputMail.value = res.mail
         this.inputPassword.value = res.password
+        this.nombre = res.persona.firstname
+        this.apellido = res.persona.lastname
       })
   }
 

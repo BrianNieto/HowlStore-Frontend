@@ -20,17 +20,17 @@ export class ProfileService {
   }
 
   viewProfile():any{
-    let id = localStorage.getItem("userId")
+    let id = localStorage.getItem("idUser")
     return this.httpClient.get(this.urlProfile + `/${id}`)
   }
 
   updateProfile(userToUpdate: UserCompleteModel):any {
-    let id = localStorage.getItem("userId")
+    let id = localStorage.getItem("idUser")
     return this.httpClient.put(this.urlProfile + `/${id}`,userToUpdate,this.getHttpOptions())
   }
 
   deleteProfile():any{
-    let id = localStorage.getItem("userId")
+    let id = localStorage.getItem("idUser")
     return this.httpClient.delete(this.urlProfile + `/${id}`)
   }
 

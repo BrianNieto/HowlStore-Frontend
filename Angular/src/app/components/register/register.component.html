@@ -24,7 +24,7 @@
         *Este campo debe estar completo</p>
     </div>
     <label for="password">Contraseña <span>*</span></label>
-    <input type="text" id="password" formControlName="password" placeholder="Ingrese su contraseña">
+    <input type="password" id="password" formControlName="password" placeholder="Ingrese su contraseña">
     <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
       <p class="errorText"*ngIf="registerForm.controls['password'].errors?.['required']">
         *Este campo debe estar completo</p>

@@ -13,7 +13,7 @@
           *Debe ingresar un mail correcto</p>
       </div>
       <label for="password">Contraseña <span>*</span></label>
-      <input type="text" id="password" formControlName="password" placeholder="Ingrese su contraseña">
+      <input type="password" id="password" formControlName="password" placeholder="Ingrese su contraseña">
       <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
         <p class="errorText"*ngIf="loginForm.controls['password'].errors?.['required']">
           *Este campo debe estar completo</p>

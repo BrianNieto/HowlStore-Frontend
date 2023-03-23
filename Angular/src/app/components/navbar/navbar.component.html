@@ -1,16 +1,16 @@
 <header>
   <nav class="usuario" id="navUsuario">
-    <a class=".a-usuario" id="navIngresar" href="login.html">Ingresar</a>
-    <a class=".a-usuario" id="navPerfil" href="perfil.html">Perfil</a>
-    <a class=".a-usuario" id="navSalir" href="login.html" onclick="salirSesion()">Salir</a>
+    <a class=".a-usuario" id="navIngresar" routerLink="/login" *ngIf="!session">Ingresar</a>
+    <a class=".a-usuario" id="navPerfil" routerLink="/profile" *ngIf="session">Perfil</a>
+    <a class=".a-usuario" id="navSalir" routerLink="/login" (click)="salirSesion()" *ngIf="session">Salir</a>
   </nav>
   <nav class="nav-header">
     <ul class="ul-header">
-      <li><a class="ventana-actual" href="inicio.html">Inicio</a></li>
-      <li><a class="a-hover" href="tienda.html">Tienda</a></li>
+      <li><a class="a-hover" routerLink="">Inicio</a></li>
+      <li><a class="a-hover" routerLink="/store">Tienda</a></li>
       <li><a class="a-hover" href="img/logo.jpg"></a></li>
-      <li><a class="a-hover" href="contacto.html">Contacto</a></li>
-      <li><a class="a-hover" href="nosotros.html">Nosotros</a></li>
+      <li><a class="a-hover" routerLink="/contact">Contacto</a></li>
+      <li><a class="a-hover" routerLink="/about">Nosotros</a></li>
     </ul>
   </nav>
 </header>

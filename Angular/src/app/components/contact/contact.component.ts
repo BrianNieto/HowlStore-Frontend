@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {ContactService} from "../../services/contact.service";
 import {ContactModel} from "../../models/Contact.model";
+import {NgForm} from "@angular/forms";
+import {Router} from "@angular/router";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -8,12 +11,18 @@ import {ContactModel} from "../../models/Contact.model";
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  newContact!:ContactModel;
+  newContact:ContactModel = new ContactModel("","","","","");
 
-  constructor(private service:ContactService) {}
+  constructor(private service:ContactService,private router:Router) {}
 
-  createContactRequest() {
-    this.service.createContact(this.newContact)
+  createContactRequest(form:NgForm) {
+    this.service.createContact(this.newContact).subscribe(
+      (res:any) => {
+        Swal.fire("Datos enviados!").then(()=> {
+          this.router.navigate([""])
+        })
+      }
+    )
     }
 
 }

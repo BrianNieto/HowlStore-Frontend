@@ -12,8 +12,8 @@ export class ContactService {
 
   constructor(private httpClient:HttpClient) { }
 
-  createContact(contact:ContactModel){
-    this.httpClient.post(this.urlContact,contact)
+  createContact(contact:ContactModel):any{
+    return this.httpClient.post(this.urlContact,contact)
   }
 
 }

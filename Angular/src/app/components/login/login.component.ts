@@ -4,6 +4,7 @@ import {User} from "../../models/UserLogin.model";
 import {LoginService} from "../../services/login.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {StorageService} from "../../services/storage.service";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import {Router} from "@angular/router";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private service:LoginService, private router:Router) {
+  constructor(private formBuilder:FormBuilder, private service:LoginService, private router:Router, private storage:StorageService) {
     this.loginForm = this.formBuilder.group({
                                               mail: ["", [Validators.required, Validators.email]],
                                               password: ["",[Validators.required]]
@@ -25,7 +26,7 @@ export class LoginComponent {
     let userToValidate:User = {mail: this.loginForm.value.mail, password : this.loginForm.value.password}
     this.service.login(userToValidate).subscribe({
                                                 next: res => {
-                                                        localStorage.setItem("idUser",res.toString())
+                                                        this.storage.setItem("idUser",res.toString())
                                                         this.router.navigate([""])
                                                       },
                                                 error: (err: HttpErrorResponse) => {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ItemModel} from "../../models/Item.model";
 import {StoreService} from "../../services/store.service";
 import {CategoryModel} from "../../models/Category.model";
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent {
+export class StoreComponent implements OnInit{
 
   items:ItemModel[] = []
   categories:CategoryModel[] = []

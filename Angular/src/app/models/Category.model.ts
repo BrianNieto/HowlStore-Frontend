@@ -1,4 +1,4 @@
 export class CategoryModel{
 
-  constructor(public nombreCategoria:String) {}
+  constructor(public idCategoria:number,public nombreCategoria:String) {}
 }

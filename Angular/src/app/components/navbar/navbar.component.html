@@ -1,6 +1,7 @@
 <header>
   <nav class="usuario" id="navUsuario">
     <a class=".a-usuario" id="navIngresar" routerLink="/login" *ngIf="!session">Ingresar</a>
+    <a class=".a-usuario" id="navRegistrarse" routerLink="/register" *ngIf="!session">Registrarse</a>
     <a class=".a-usuario" id="navPerfil" routerLink="/profile" *ngIf="session">Perfil</a>
     <a class=".a-usuario" id="navSalir" routerLink="/login" (click)="salirSesion()" *ngIf="session">Salir</a>
   </nav>

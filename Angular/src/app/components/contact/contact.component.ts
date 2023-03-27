@@ -4,6 +4,7 @@ import {ContactModel} from "../../models/Contact.model";
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
 import Swal from 'sweetalert2';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -15,14 +16,21 @@ export class ContactComponent {
 
   constructor(private service:ContactService,private router:Router) {}
 
-  createContactRequest(form:NgForm) {
+  public sendEmail(e: Event, form: NgForm) {
     this.service.createContact(this.newContact).subscribe(
-      (res:any) => {
-        Swal.fire("Datos enviados!").then(()=> {
-          this.router.navigate([""])
-        })
-      }
-    )
-    }
+      () => {
+        if (form.valid) {
+          emailjs.sendForm('service_gsl1x2c', 'template_dw6ke2p', e.target as HTMLFormElement, 'jSlj8euVMZ7qd-PHB')
+            .then((result: EmailJSResponseStatus) => {
+                Swal.fire("Datos enviados!")
+                  .then(()=> {
+                    this.router.navigate([""])
+                  })
+            }, (error) => {
+              console.log(error.text);
+            });
+        }
+      })
+  }
 
 }

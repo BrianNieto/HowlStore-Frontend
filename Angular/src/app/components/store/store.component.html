@@ -2,7 +2,7 @@
   <input type="text" id="buscador">
   <div class="div-categorias" id="div-categorias">
     <ul id="ul-categoria" *ngFor="let category of categories">
-      <li>{{category.nombreCategoria}}</li>
+      <li><button (click)="filterCategory(category.idCategoria)">{{category.nombreCategoria}}</button></li>
     </ul>
   </div>
   <div id="contenedor" class="contenedor" *ngFor="let item of items">

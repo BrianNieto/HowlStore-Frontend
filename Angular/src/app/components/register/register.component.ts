@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {RegisterService} from "../../services/register.service";
 import {Router} from "@angular/router";
 import {UserCompleteModel} from "../../models/UserComplete.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {PersonaModel} from "../../models/Persona.model";
+import emailjs, {EmailJSResponseStatus} from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-register',
@@ -24,22 +26,20 @@ export class RegisterComponent {
                                                       })
   }
 
-  registerSubmit() {
+  registerSubmit(e:Event) {
     let personaToRegister:PersonaModel = {firstname:this.registerForm.value.firstname, lastname:this.registerForm.value.lastname}
     let userToRegister:UserCompleteModel = {mail: this.registerForm.value.mail, password: this.registerForm.value.password, persona:personaToRegister}
-    this.registerService.register(userToRegister).subscribe({
-                                                              next: res => {
-                                                                  this.router.navigate(["/login"])
-                                                              },
-                                                              error: (err: HttpErrorResponse) => {
-                                                                if (err.error instanceof Error) {
-                                                                  console.log('Error de cliente o red', err.error.message);
-
-                                                                } else {
-                                                                  console.log(err.error);
-                                                                }
+    this.registerService.register(userToRegister).subscribe(
+                                                (res:any) => {
+                                                                emailjs.sendForm('service_gsl1x2c', 'template_3bc9ck9', e.target as HTMLFormElement, 'jSlj8euVMZ7qd-PHB')
+                                                                  .then(
+                                                                    () => {
+                                                                      Swal.fire("Se ha registrado con exito!")
+                                                                        .then(()=> {
+                                                                          this.router.navigate(["/login"])
+                                                                        })
+                                                                  })
                                                               }
-                                                            })
+                                                            )
   }
-
 }

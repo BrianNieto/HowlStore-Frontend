@@ -8,7 +8,7 @@ import {CompraModel} from "../models/Compra.model";
 })
 export class DetailsService {
 
-  urlDetails:string = url + "items"
+  urlItems:string = url + "items"
   urlCompras:string = url + "compras"
 
   constructor(private httpCliente:HttpClient) {}
@@ -23,7 +23,7 @@ export class DetailsService {
 
   getItem():any{
     let id = localStorage.getItem("idItem")
-    return this.httpCliente.get(this.urlDetails + `/${id}`)
+    return this.httpCliente.get(this.urlItems + `/${id}`)
   }
 
   buyItem(compra: CompraModel):any {

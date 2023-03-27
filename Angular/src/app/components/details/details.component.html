@@ -1,8 +1,7 @@
 <main>
   <div class="div-categorias" id="div-categorias">
-    <input type="text" id="buscador">
     <ul id="ul-categoria" *ngFor="let category of categories">
-      <li><button (click)="filterCategory(category.idCategoria)">{{category.nombreCategoria}}</button></li>
+      <li><button (click)="filterCategory(category.idCategoria)" class="btn">{{category.nombreCategoria}}</button></li>
     </ul>
   </div>
   <div class="div-carousel" id="div-carousel">
@@ -20,7 +19,12 @@
         <div class="texto">Precio: {{precio}}</div>
       </div>
     <div>
-      <button (click)="comprarItem()">Comprar</button>
+      <button (click)="comprarItem()" class="btn1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Comprar</button>
     </div>
     </div>
 </main>

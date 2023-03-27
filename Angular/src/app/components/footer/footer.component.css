@@ -1,62 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
-
-*{
-  font-family: Nunito, sans-serif;
-  font-weight: 700;
-}
-
-body{
-  margin: 0;
-  background-color: rgb(111, 111, 175);
-}
-
-header{
-  height: 100px;
-}
-header, footer{
-  width: 100%;
-  background-color: rgb(76, 76, 147);;
-}
-
-.ventana-actual{
-  background-color: yellow;
-  border-radius: 15px;
-  padding: 2px 5px;
-}
-
-.ul-footer, .ul-header{
+.ul-footer{
   list-style-type: none;
   display: flex;
-}
-
-.ul-header{
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-}
-
-.a-usuario{
-  margin: 5px;
-}
-
-a{
-  text-transform: uppercase;
-  text-decoration: none;
-  color: black;
-}
-
-.nav-header{
-  padding: 10px 20px;
-  margin-top: 0;
-  font-size: 25px;
-}
-
-.usuario{
-  padding: 10px;
-  display: flex;
-  justify-content: end;
-  border: 20px;
-  margin: 0;
 }
 
 
@@ -66,6 +10,7 @@ a{
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: #343131;
   flex-direction: column;
 }
 
@@ -83,19 +28,24 @@ footer{
   display: grid;
   justify-items: center;
   height: 200px;
+  background-color: #343131;
+  color: white;
+  margin-top: 80px;
 }
 
 h4{
   font-size: 15px;
   margin: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .ul-footer li{
   margin: 5px;
 }
 
-.a-hover:hover{
-  background-color: grey;
-  border-radius: 20px;
-  padding: 5px;
+.fa-brands{
+  font-size: 2rem;
+  color: white;
+  margin: 5px;
 }

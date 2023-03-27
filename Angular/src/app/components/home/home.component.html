@@ -1,22 +1,29 @@
 <main>
-  <h2>¡Nuestros productos!</h2>
+  <div class="title">
+    <h2>Nuestros productos</h2>
+  </div>
   <div class="div-carousel" id="div-carousel">
     <button class="left-arrow"><</button>
     <button class="right-arrow">></button>
     <div *ngFor="let item of itemsToShow" class="items">
-      <a (click)="navigateTo(item.idItem)"><img src="{{item.img1}}" alt="{{item.nombreItem}}" class="img-carousel"></a>
+      <a (click)="navigateTo(item.idItem)" class="a-carousel"><img src="{{item.img1}}" alt="{{item.nombreItem}}" class="img-carousel"></a>
     </div>
   </div>
 
-  <h2>¡Algunas de nuestras recomendaciones!</h2>
-  <div class="cards" id="div-cards" *ngFor="let recomendacion of recomendaciones">
-    <div class="card">
-      <h3>{{recomendacion.nombreRecomendacion}}</h3>
-      <img class="img-card" src="{{recomendacion.imgRecomendacion}}" alt="{{recomendacion.nombreRecomendacion}}">
-      <div class="card-text">
-        <p>"{{recomendacion.comentarioRecomendacion}}"</p>
-        <p>{{recomendacion.fechaRecomendacion}}</p>
-      </div>
+  <div class="title">
+    <h2>Nuestras recomendaciones</h2>
+
+  </div>
+  <div class="cards-container">
+    <div class="cards" id="div-cards" *ngFor="let recomendacion of recomendaciones">
+      <div class="card">
+        <h3>{{recomendacion.nombreRecomendacion}}</h3>
+        <img class="img-card" src="{{recomendacion.imgRecomendacion}}" alt="{{recomendacion.nombreRecomendacion}}">
+        <div class="card-text">
+          <p>"{{recomendacion.comentarioRecomendacion}}"</p>
+          <p>{{recomendacion.fechaRecomendacion}}</p>
+        </div>
     </div>
+  </div>
   </div>
 </main>

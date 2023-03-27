@@ -1,16 +1,30 @@
-<h2>Hola, {{nombre}} {{apellido}}</h2>
-
 <form [formGroup]="profileForm" class = "perfilUsuario" id="perfilUsuario">
-  <h3>Datos</h3>
-  <label for="nombre">Nombre <span>*</span></label>
-  <input type="text" id="nombre" placeholder="Ingrese su nombre">
-  <label for="apellido">Apellido <span>*</span></label>
-  <input type="text" id="apellido" placeholder="Ingrese su apellido">
-  <label for="mail">e-mail <span>*</span></label>
-  <input type="text" id="mail" readonly="true">
-  <label for="password">Contraseña <span>*</span></label>
-  <input type="password" id="password" placeholder="Ingrese su contraseña">
 
-  <button (click)="updateUser()">Actualizar perfil</button>
-  <button (click)="deleteUser()">Eliminar perfil</button>
+  <h2>Hola, {{nombre}} {{apellido}}</h2>
+  <div class="profile-input">
+    <label for="nombre">Nombre <span>*</span></label>
+    <input type="text" id="nombre" placeholder="Ingrese su nombre">
+    <label for="apellido">Apellido <span>*</span></label>
+    <input type="text" id="apellido" placeholder="Ingrese su apellido">
+    <label for="mail">e-mail <span>*</span></label>
+    <input type="text" id="mail" readonly="true">
+    <label for="password">Contraseña <span>*</span></label>
+    <input type="password" id="password" placeholder="Ingrese su contraseña">
+
+      <button (click)="updateUser()" class="btn1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Actualizar perfil
+      </button>
+      <button (click)="deleteUser()" class="btn1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Eliminar perfil
+      </button>
+    </div>
+
 </form>

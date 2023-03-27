@@ -1,14 +1,15 @@
 <div class="div-tienda">
-  <input type="text" id="buscador">
   <div class="div-categorias" id="div-categorias">
     <ul id="ul-categoria" *ngFor="let category of categories">
-      <li><button (click)="filterCategory(category.idCategoria)">{{category.nombreCategoria}}</button></li>
+      <li><button (click)="filterCategory(category.idCategoria)" class="btn">{{category.nombreCategoria}}</button></li>
     </ul>
   </div>
-  <div id="contenedor" class="contenedor" *ngFor="let item of items">
-    <div class="card">
-      <button class="linkProducto" id="{{item.idItem}}" (click)="seeDetails(item.idItem)">{{item.nombreItem}}</button>
-      <img class="img-card" src="{{item.img1}}" alt="{{item.nombreItem}}">
+  <div class="div-contenedor">
+    <div id="contenedor" class="contenedor" *ngFor="let item of items">
+      <div class="card" (click)="seeDetails(item.idItem)">
+        <button class="linkProducto" id="{{item.idItem}}">{{item.nombreItem}}</button>
+        <img class="img-card" src="{{item.img1}}" alt="{{item.nombreItem}}">
+      </div>
     </div>
   </div>
 </div>

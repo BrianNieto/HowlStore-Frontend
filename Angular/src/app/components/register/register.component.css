@@ -2,93 +2,170 @@
   box-sizing: border-box;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid;
-  width: 50%;
-  border-radius: 30px;
-  margin: 20px auto;
-  background-color: grey;
-}
-
-.login{
-  padding: 40px 5px;
-  width: 40%;
-  padding: 30px;
-  margin: 0;
-}
-
 .register{
-  padding: 20px;
-}
-
-div, main{
   display: flex;
-  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  height: 600px;
+  border-radius: 30px;
+  padding: 30px;
 }
 
-button{
-  height: 70px;
-  border-radius: 15px;
-  background-color: rgb(20, 172, 20);
-  text-transform: uppercase;
-  width: 300px;
-  margin: 10px;
+textarea, input{
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #343131;
 }
 
 input{
-  border-radius: 5px;
-  margin-bottom: 15px;
-  border: 2px solid rgb(19, 19, 19);
+  width: 100%;
   height: 50px;
-  width: 300px;
 }
 
-.a-button{
-  color: white;
+.register-input{
+  display: flex;
+  width: 30%;
+  flex-direction: column;
 }
 
-h1, .a-button{
-  text-transform: uppercase;
-}
-
-h1{
-  background-color: blue;
-  padding: 10px;
-  color: white;
-  border-radius: 10px;
-}
-
-.h1-register{
-  font-size: 25px;
-}
-
-.h1-login{
-  font-size: 20px;
-}
-
-label, input{
-  font-size: 15px;
+textarea{
+  width: 100%;
+  height: 100px;
+  resize: none;
 }
 
 span{
   color: rgb(206, 26, 26);
 }
 
-div{
-  margin : 0;
-}
-
-input:focus{
+textarea:focus, input:focus{
   outline:0;
-  border: 2px solid #97d848;
+  border: 2px solid #c1215a;;
 }
 
-.error{
-  color: rgb(197, 27, 27);
+h2,h3{
+  display: flex;
+  justify-content: center;
+}
+
+h2{
+  font-size: 25px;
+}
+
+h3{
   margin: 0;
-  font-size: 10px;
+  font-size: 20px;
+}
+
+.btn1 {
+  background-color: black;
+  width: 300px;
+  cursor: pointer;
+  position: relative;
+  padding: 20px 50px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  overflow: hidden;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  border: 2px solid #FFB3B3;
+  transition: all 0.1s linear;
+  margin: 0 auto;
+}
+
+.btn1:hover {
+  border: 1px solid transparent;
+}
+
+.btn1:hover span {
+  position: absolute;
+  display: block;
+}
+
+.btn1:hover span:nth-child(1) {
+  filter: hue-rotate(0deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3a86ff);
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+.btn1:hover span:nth-child(2) {
+  filter: hue-rotate(60deg);
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #3a86ff);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+
+.btn1:hover span:nth-child(3) {
+  filter: hue-rotate(120deg);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(270deg, transparent, #3a86ff);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+    height: 3px;
+  }
+  50%, 100% {
+    height: 2px;
+    right: 100%;
+  }
+}
+
+.btn1:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #3a86ff);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+
+.errorText{
+  font-weight: 300;
+  color: red;
 }

@@ -1,36 +1,44 @@
 <main>
   <form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="registerSubmit($event)" class="register" id="register">
 
-    <h1 class="h1-register">Registrarse en la plataforma</h1>
+    <h2>Registrarse en la plataforma</h2>
 
-    <label for="mail" class="label-registarse">E-mail <span>*</span></label>
-    <input type="email" name="mail" id="mail" formControlName="mail" placeholder="Ingrese su e-mail">
-    <div *ngIf="registerForm.controls['mail'].invalid && (registerForm.controls['mail'].dirty || registerForm.controls['mail'].touched)">
-      <p class="errorText"*ngIf="registerForm.controls['mail'].errors?.['required']">
-        *Este campo debe estar completo</p>
-      <p class="errorText"*ngIf="registerForm.controls['mail'].errors?.['email']">
-        *Debe ingresar un mail correcto</p>
-    </div>
-    <label for="nombre">Nombre <span>*</span></label>
-    <input id="nombre" name="nombre" type="text" formControlName="firstname" placeholder="Ingrese su nombre">
-    <div *ngIf="registerForm.controls['firstname'].invalid && (registerForm.controls['firstname'].dirty || registerForm.controls['firstname'].touched)">
-      <p class="errorText"*ngIf="registerForm.controls['firstname'].errors?.['required']">
-        *Este campo debe estar completo</p>
-    </div>
-    <label for="apellido">Apellido <span>*</span></label>
-    <input type="text" name="apellido" id="apellido" formControlName="lastname" placeholder="Ingrese su apellido">
-    <div *ngIf="registerForm.controls['lastname'].invalid && (registerForm.controls['lastname'].dirty || registerForm.controls['lastname'].touched)">
-      <p class="errorText"*ngIf="registerForm.controls['lastname'].errors?.['required']">
-        *Este campo debe estar completo</p>
-    </div>
-    <label for="password">Contraseña <span>*</span></label>
-    <input type="password" name="password" id="password" formControlName="password" placeholder="Ingrese su contraseña">
-    <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
-      <p class="errorText"*ngIf="registerForm.controls['password'].errors?.['required']">
-        *Este campo debe estar completo</p>
-    </div>
+    <div class="register-input">
+      <label for="mail" class="label-registarse">E-mail <span>*</span></label>
+      <input type="email" name="mail" id="mail" formControlName="mail" placeholder="Ingrese su e-mail">
+      <div *ngIf="registerForm.controls['mail'].invalid && (registerForm.controls['mail'].dirty || registerForm.controls['mail'].touched)">
+        <p class="errorText"*ngIf="registerForm.controls['mail'].errors?.['required']">
+          *Este campo debe estar completo</p>
+        <p class="errorText"*ngIf="registerForm.controls['mail'].errors?.['email']">
+          *Debe ingresar un mail correcto</p>
+      </div>
+      <label for="nombre">Nombre <span>*</span></label>
+      <input id="nombre" name="nombre" type="text" formControlName="firstname" placeholder="Ingrese su nombre">
+      <div *ngIf="registerForm.controls['firstname'].invalid && (registerForm.controls['firstname'].dirty || registerForm.controls['firstname'].touched)">
+        <p class="errorText"*ngIf="registerForm.controls['firstname'].errors?.['required']">
+          *Este campo debe estar completo</p>
+      </div>
+      <label for="apellido">Apellido <span>*</span></label>
+      <input type="text" name="apellido" id="apellido" formControlName="lastname" placeholder="Ingrese su apellido">
+      <div *ngIf="registerForm.controls['lastname'].invalid && (registerForm.controls['lastname'].dirty || registerForm.controls['lastname'].touched)">
+        <p class="errorText"*ngIf="registerForm.controls['lastname'].errors?.['required']">
+          *Este campo debe estar completo</p>
+      </div>
+      <label for="password">Contraseña <span>*</span></label>
+      <input type="password" name="password" id="password" formControlName="password" placeholder="Ingrese su contraseña">
+      <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+        <p class="errorText"*ngIf="registerForm.controls['password'].errors?.['required']">
+          *Este campo debe estar completo</p>
+      </div>
 
-    <button [disabled]="registerForm.invalid" type="submit">Registrarse</button>
+      <button [disabled]="registerForm.invalid" type="submit" class="btn1">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Registrarse
+      </button>
+    </div>
 
   </form>
 </main>

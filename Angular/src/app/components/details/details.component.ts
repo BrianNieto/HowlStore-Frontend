@@ -1,7 +1,7 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {DetailsService} from "../../services/details.service";
 import {CompraModel} from "../../models/Compra.model";
 import {Router} from "@angular/router";
+import {CompraService} from "../../services/compra.service";
 
 @Component({
   selector: 'app-details',
@@ -17,7 +17,7 @@ export class DetailsComponent {
   img1!:string;
   img2!:string;
   img3!:string;
-  constructor(private service:DetailsService, private router:Router) { }
+  constructor(private service:CompraService, private router:Router) { }
 
   ngOnInit(){
     this.service.getItem().subscribe(

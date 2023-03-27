@@ -6,12 +6,12 @@ import {CompraModel} from "../models/Compra.model";
 @Injectable({
   providedIn: 'root'
 })
-export class DetailsService {
+export class CompraService {
 
-  urlItems:string = url + "items"
   urlCompras:string = url + "compras"
+  urlItems:string = url + "items"
 
-  constructor(private httpCliente:HttpClient) {}
+  constructor(private httpClient:HttpClient) {}
 
   private getHttpOptions(){
     return {
@@ -23,10 +23,11 @@ export class DetailsService {
 
   getItem():any{
     let id = localStorage.getItem("idItem")
-    return this.httpCliente.get(this.urlItems + `/${id}`)
+    return this.httpClient.get(this.urlItems + `/${id}`)
   }
 
   buyItem(compra: CompraModel):any {
-    return this.httpCliente.post(this.urlCompras, compra, this.getHttpOptions())
+    return this.httpClient.post(this.urlCompras, compra, this.getHttpOptions())
   }
+
 }

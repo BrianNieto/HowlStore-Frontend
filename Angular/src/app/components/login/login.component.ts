@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/UserLogin.model";
-import {LoginService} from "../../services/login.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {StorageService} from "../../services/storage.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ import {StorageService} from "../../services/storage.service";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private service:LoginService, private router:Router, private storage:StorageService) {
+  constructor(private formBuilder:FormBuilder, private service:UserService, private router:Router, private storage:StorageService) {
     this.loginForm = this.formBuilder.group({
                                               mail: ["", [Validators.required, Validators.email]],
                                               password: ["",[Validators.required]]

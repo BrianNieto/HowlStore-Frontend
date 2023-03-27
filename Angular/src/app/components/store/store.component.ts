@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemModel} from "../../models/Item.model";
-import {StoreService} from "../../services/store.service";
 import {CategoryModel} from "../../models/Category.model";
 import {Router} from "@angular/router";
 import {ItemService} from "../../services/item.service";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   selector: 'app-store',
@@ -15,14 +15,14 @@ export class StoreComponent implements OnInit{
   items:ItemModel[] = []
   categories:CategoryModel[] = []
 
-  constructor(private service:StoreService, private router:Router, private itemService:ItemService) { }
+  constructor(private categoryService:CategoryService, private router:Router, private itemService:ItemService) { }
 
   ngOnInit(){
-    this.service.getAllItems().subscribe(
+    this.itemService.getAllItems().subscribe(
       (res:any) => {
         this.items = res
       })
-    this.service.getAllCategories().subscribe(
+    this.categoryService.getAllCategories().subscribe(
       (res:any) => {
         this.categories = res
       }

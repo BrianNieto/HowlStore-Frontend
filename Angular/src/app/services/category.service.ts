@@ -5,16 +5,11 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class StoreService {
+export class CategoryService {
 
-  urlItems:string = url + "items"
   urlCategories:string = url + "categorias"
 
   constructor(private httpClient:HttpClient) {}
-
-  getAllItems():any{
-    return this.httpClient.get(this.urlItems)
-  }
 
   getAllCategories():any {
     return this.httpClient.get(this.urlCategories)

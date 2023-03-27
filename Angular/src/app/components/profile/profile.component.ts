@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileService} from "../../services/profile.service";
 import {UserCompleteModel} from "../../models/UserComplete.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PersonaModel} from "../../models/Persona.model";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   apellido!:string;
 
 
-  constructor(private service: ProfileService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private service: UserService, private formBuilder: FormBuilder, private router: Router) {
     this.profileForm = this.formBuilder.group({
       mail: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required]],

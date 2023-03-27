@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit{
       () => {
         if (form.valid) {
           emailjs.sendForm('service_gsl1x2c', 'template_dw6ke2p', e.target as HTMLFormElement, 'jSlj8euVMZ7qd-PHB')
-            .then((result: EmailJSResponseStatus) => {
+            .then(() => {
                 Swal.fire("Datos enviados!")
                   .then(()=> {
                     this.router.navigate([""])

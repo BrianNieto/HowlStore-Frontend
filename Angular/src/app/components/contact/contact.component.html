@@ -6,17 +6,22 @@
     <form class="contacto" #form="ngForm" (submit)="sendEmail($event, form)">
       <div class="contact-input">
         <label for="nombre">Nombre <span>*</span></label>
-        <input name="nombre" type="text" id="nombre" [(ngModel)]="newContact.nombreContact" placeholder="Ingrese su nombre" required>
+        <input name="nombre" type="text" id="nombre" #nombreV="ngModel" [(ngModel)]="newContact.nombreContact" placeholder="Ingrese su nombre" required>
+        <div [hidden]="nombreV.valid || nombreV.untouched" class="errorText">*campo obligatorio</div>
         <label for="apellido">Apellido <span>*</span></label>
-        <input name="apellido" type="text" id="apellido" [(ngModel)]="newContact.apellidoContact" placeholder="Ingrese su apellido" required>
-        <label for="mail">e-mail <span>*</span></label>
-        <input name="mail" type="text" id="mail" [(ngModel)]="newContact.mailContact" placeholder="Ingrese su mail">
+        <input name="apellido" type="text" #apellidoV="ngModel" id="apellido" [(ngModel)]="newContact.apellidoContact" placeholder="Ingrese su apellido" required>
+        <div [hidden]="apellidoV.valid || apellidoV.untouched" class="errorText">*campo obligatorio</div>
+        <label for="mail">mail <span>*</span></label>
+        <input name="mail" #mailV="ngModel" type="text" id="mail" [(ngModel)]="newContact.mailContact" placeholder="Ingrese su mail">
+        <div [hidden]="mailV.valid || mailV.untouched" class="errorText">*campo obligatorio</div>
         <label for="asuntoForm">Asunto <span>*</span></label>
-        <input name="asuntoForm" type="text" id="asuntoForm" [(ngModel)]="newContact.asuntoContact" placeholder="Ingrese el motivo de contacto" required>
+        <input name="asuntoForm" #asuntoV="ngModel" type="text" id="asuntoForm" [(ngModel)]="newContact.asuntoContact" placeholder="Ingrese el motivo de contacto" required>
+        <div [hidden]="asuntoV.valid || asuntoV.untouched" class="errorText">*campo obligatorio</div>
         <label for="mensajeForm">Mensaje <span>*</span></label>
-        <textarea name="mensajeForm" id="mensajeForm" [(ngModel)]="newContact.mensajeContact" placeholder="Ingrese su mensaje" required></textarea>
+        <textarea name="mensajeForm" #mensajeV="ngModel" id="mensajeForm" [(ngModel)]="newContact.mensajeContact" placeholder="Ingrese su mensaje" required></textarea>
+        <div [hidden]="mensajeV.valid || mensajeV.untouched" class="errorText">*campo obligatorio</div>
 
-        <button class="btn1" type="submit">
+        <button class="btn1" type="submit" [disabled]="form.invalid">
           <span></span>
           <span></span>
           <span></span>

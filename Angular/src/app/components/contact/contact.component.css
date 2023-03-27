@@ -75,6 +75,11 @@ h3{
   margin: 0 auto;
 }
 
+.btn1:disabled {
+  background-color: grey;
+  color: lightcyan;
+}
+
 .btn1:hover {
   border: 1px solid transparent;
 }
@@ -161,4 +166,11 @@ h3{
   50%, 100% {
     bottom: 100%;
   }
+}
+
+.errorText{
+  font-weight: 300;
+  font-size: 12px;
+  color: red;
+  margin-top: 0;
 }

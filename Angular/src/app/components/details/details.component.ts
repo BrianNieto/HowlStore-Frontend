@@ -18,9 +18,8 @@ export class DetailsComponent implements OnInit{
   estado!:string;
   categoria!:string;
   precio!:string;
-  img1!:string;
-  img2!:string;
-  img3!:string;
+  image1!:string;
+
   constructor(private compraService:CompraService,private categoryService:CategoryService, private itemService:ItemService, private router:Router) { }
 
   ngOnInit(){
@@ -30,10 +29,7 @@ export class DetailsComponent implements OnInit{
         this.estado = res.estadoItem
         this.categoria = res.category.nombreCategoria
         this.precio = res.precioItem
-        this.img1 = res.img1
-        this.img2 = res.img2
-        this.img3 = res.img3
-        console.log(res)
+        this.image1 = res.img1
       })
     this.categoryService.getAllCategories().subscribe(
       (res:any) => {
@@ -54,7 +50,7 @@ export class DetailsComponent implements OnInit{
 
   filterCategory(category:number) {
     this.itemService.getAllItemsByCategory(category).subscribe(
-      (res:any) => {
+      () => {
         this.router.navigate(["/store"])
       })
   }

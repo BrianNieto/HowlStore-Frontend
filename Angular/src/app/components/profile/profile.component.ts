@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PersonaModel} from "../../models/Persona.model";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-profile',
@@ -47,21 +48,63 @@ export class ProfileComponent implements OnInit {
   }
 
   updateUser() {
-    let personaToUpdate: PersonaModel = {firstname: this.inputName.value, lastname: this.inputLastname.value}
-    let userToUpdate: UserCompleteModel = {
-      mail: this.inputMail.value,
-      password: this.inputPassword.value,
-      persona: personaToUpdate
-    }
-    this.service.updateProfile(userToUpdate).subscribe((res: any) => {
-      this.router.navigate(["/profile"])
-    })
+    Swal.fire({
+      title: '¿Está seguro que deseas actualizar sus datos?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Actualizar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+          let personaToUpdate: PersonaModel = {firstname: this.inputName.value, lastname: this.inputLastname.value}
+          let userToUpdate: UserCompleteModel = {
+            mail: this.inputMail.value,
+            password: this.inputPassword.value,
+            persona: personaToUpdate
+          }
+          this.service.updateProfile(userToUpdate).subscribe(() => {
+            this.router.navigate(["/profile"])
+          })
+        Swal.fire({
+          icon: 'success',
+          title:'Tus datos han sido actualizados',
+          timer: 2500,
+          timerProgressBar: true,
+          showConfirmButton: true,
+          confirmButtonText: 'OK'
+        });
+      }
+    });
   }
 
   deleteUser() {
-    this.service.deleteProfile().subscribe((res:any) => {
-      localStorage.clear()
-      this.router.navigate([""])
-    })
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar su cuenta?',
+      text: "Esta acción no se puede deshacer.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.deleteProfile().subscribe((res:any) => {
+          localStorage.clear()
+          this.router.navigate([""])
+        })
+        Swal.fire({
+          icon: 'success',
+          title:'Tu cuenta fue eliminada con exito',
+          text: 'Has sido redirigido a la página de inicio.',
+          timer: 2500,
+          timerProgressBar: true,
+          showConfirmButton: true,
+          confirmButtonText: 'OK'
+        });
+      }
+    });
   }
 }

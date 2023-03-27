@@ -45,12 +45,12 @@ textarea:focus, input:focus{
   border: 2px solid #c1215a;;
 }
 
-h2,h3{
+.h2-saludo,h3{
   display: flex;
   justify-content: center;
 }
 
-h2{
+.h2-saludo{
   font-size: 25px;
 }
 

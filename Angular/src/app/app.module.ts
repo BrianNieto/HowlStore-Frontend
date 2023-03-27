@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StoreComponent } from './components/store/store.component';
 import { DetailsComponent } from './components/details/details.component';
+import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DetailsComponent } from './components/details/details.component';
     DetailsComponent
   ],
   imports: [
+    MdbCheckboxModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

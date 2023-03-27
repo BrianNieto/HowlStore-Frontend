@@ -9,7 +9,6 @@ import {CompraModel} from "../models/Compra.model";
 export class CompraService {
 
   urlCompras:string = url + "compras"
-  urlItems:string = url + "items"
 
   constructor(private httpClient:HttpClient) {}
 
@@ -19,11 +18,6 @@ export class CompraService {
         'content-type': 'application/json'
       })
     }
-  }
-
-  getItem():any{
-    let id = localStorage.getItem("idItem")
-    return this.httpClient.get(this.urlItems + `/${id}`)
   }
 
   buyItem(compra: CompraModel):any {

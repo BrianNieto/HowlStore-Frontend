@@ -18,6 +18,7 @@ export class StoreComponent implements OnInit{
   constructor(private categoryService:CategoryService, private router:Router, private itemService:ItemService) { }
 
   ngOnInit(){
+    localStorage.removeItem("idItem");
     this.itemService.getAllItems().subscribe(
       (res:any) => {
         this.items = res
@@ -38,8 +39,7 @@ export class StoreComponent implements OnInit{
     this.itemService.getAllItemsByCategory(category).subscribe(
       (res:any) => {
         this.items = res;
-      }
-    )
+      })
   }
 
 }

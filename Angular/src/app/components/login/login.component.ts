@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../models/UserLogin.model";
 import {HttpErrorResponse} from "@angular/common/http";
@@ -11,7 +11,7 @@ import {UserService} from "../../services/user.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   loginForm: FormGroup;
 
   constructor(private formBuilder:FormBuilder, private service:UserService, private router:Router, private storage:StorageService) {
@@ -19,6 +19,10 @@ export class LoginComponent {
                                               mail: ["", [Validators.required, Validators.email]],
                                               password: ["",[Validators.required]]
                                               })
+  }
+
+  ngOnInit() {
+    localStorage.removeItem("idItem");
   }
 
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ContactService} from "../../services/contact.service";
 import {ContactModel} from "../../models/Contact.model";
 import {NgForm} from "@angular/forms";
@@ -11,10 +11,14 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
   newContact:ContactModel = new ContactModel("","","","","");
 
   constructor(private service:ContactService,private router:Router) {}
+
+  ngOnInit() {
+    localStorage.removeItem("idItem");
+  }
 
   public sendEmail(e: Event, form: NgForm) {
     this.service.createContact(this.newContact).subscribe(

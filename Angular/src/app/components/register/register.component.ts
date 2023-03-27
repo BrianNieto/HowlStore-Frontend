@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserCompleteModel} from "../../models/UserComplete.model";
@@ -12,7 +12,7 @@ import {UserService} from "../../services/user.service";
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
   registerForm: FormGroup
 
@@ -23,6 +23,10 @@ export class RegisterComponent {
                                                           firstname: ["",[Validators.required]],
                                                           lastname: ["",[Validators.required]]
                                                       })
+  }
+
+  ngOnInit() {
+    localStorage.removeItem("idItem");
   }
 
   registerSubmit(e:Event) {

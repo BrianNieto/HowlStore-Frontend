@@ -1,0 +1,52 @@
+.div-carousel {
+  padding: 0 8vw;
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 200px;
+}
+
+.items {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.img-carousel {
+  position: relative;
+  height: 100px;
+  width: 200px;
+  overflow: hidden;
+}
+.left-arrow,
+.right-arrow {
+  border: none;
+  position: absolute;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 8;
+  background-color: darkgray;
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  transition: all 1s ease;
+}
+
+.left-arrow {
+  left: 30px;
+}
+
+.right-arrow {
+  right: 30px;
+}

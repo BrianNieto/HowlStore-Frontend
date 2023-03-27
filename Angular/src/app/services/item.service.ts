@@ -18,4 +18,9 @@ export class ItemService {
     return this.httpClient.get(this.urlItems + "/all/" + `${category}`)
   }
 
+  getItem():any{
+    let id = localStorage.getItem("idItem")
+    return this.httpClient.get(this.urlItems + `/${id}`)
+  }
+
 }

@@ -1,4 +1,10 @@
 <main>
+  <div class="div-categorias" id="div-categorias">
+    <input type="text" id="buscador">
+    <ul id="ul-categoria" *ngFor="let category of categories">
+      <li><button (click)="filterCategory(category.idCategoria)">{{category.nombreCategoria}}</button></li>
+    </ul>
+  </div>
   <div class="div-carousel" id="div-carousel">
     <div class="slide">
       <div id="principal" class="principal">

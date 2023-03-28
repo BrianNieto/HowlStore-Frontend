@@ -28,7 +28,7 @@ export class UserService {
     return this.httpClient.post(this.urlUser,userToRegister,this.getHttpOptions())
   }
 
-  viewProfile():any{
+  getUser():any{
     let id = localStorage.getItem("idUser")
     return this.httpClient.get(this.urlUser + `/${id}`)
   }

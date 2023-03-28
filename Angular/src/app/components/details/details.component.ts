@@ -5,6 +5,11 @@ import {CompraService} from "../../services/compra.service";
 import {ItemService} from "../../services/item.service";
 import {CategoryModel} from "../../models/Category.model";
 import {CategoryService} from "../../services/category.service";
+import {UserService} from "../../services/user.service";
+import {ItemModel} from "../../models/Item.model";
+import {UserCompleteModel} from "../../models/UserComplete.model";
+import Swal from "sweetalert2";
+import {switchMap} from "rxjs";
 
 @Component({
   selector: 'app-details',
@@ -19,8 +24,10 @@ export class DetailsComponent implements OnInit{
   categoria!:string;
   precio!:string;
   image1!:string;
+  item!:ItemModel;
+  user!:UserCompleteModel;
 
-  constructor(private compraService:CompraService,private categoryService:CategoryService, private itemService:ItemService, private router:Router) { }
+  constructor(private compraService:CompraService,private userService:UserService,private categoryService:CategoryService, private itemService:ItemService, private router:Router) { }
 
   ngOnInit(){
     this.itemService.getItem().subscribe(
@@ -38,14 +45,38 @@ export class DetailsComponent implements OnInit{
     )
   }
 
-  comprarItem():any {
-    let item:number = parseInt((localStorage.getItem("idItem") as string));
-    let user:number = parseInt((localStorage.getItem("idUser") as string));
-    let compra:CompraModel = {comentario:"asd",estadoPedido:"PEDIDO",idItem:item,idUser:user}
-    this.compraService.buyItem(compra).subscribe(
-      (res:any) => {
-        this.router.navigate(["/store"])
-      });
+  comprarItem(): any {
+    this.itemService.getItem().pipe(
+      switchMap((item: any) => {
+        this.item = item;
+        return this.userService.getUser();
+      }),
+      switchMap((user: any) => {
+        this.user = user;
+        console.log(this.user);
+        let compra: CompraModel = {
+          comentario: "asd",
+          estadoPedido: "PEDIDO",
+          fecha: "",
+          item: this.item,
+          user: this.user
+        };
+        return this.compraService.buyItem(compra);
+      })
+    ).subscribe(
+      (res: any) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigate(["/store"]);
+      },
+      (error: any) => {
+        console.error(error);
+      }
+    );
   }
 
   filterCategory(category:number) {

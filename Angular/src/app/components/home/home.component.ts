@@ -40,13 +40,11 @@ export class HomeComponent implements OnInit{
 
 
       this.rightArrow[i].addEventListener("click", () => {
-        console.log("pasando por el carrusel");
         item.scrollLeft += containerWidth;
       });
 
 
       this.leftArrow[i].addEventListener("click", () => {
-        console.log("pasando por el carrusel");
         item.scrollLeft -= containerWidth;
       });
     });

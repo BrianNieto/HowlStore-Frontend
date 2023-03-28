@@ -170,3 +170,23 @@ h3{
   font-weight: 300;
   color: red;
 }
+
+tbody{
+  margin-bottom: 20px;
+}
+
+.div-tablas{
+  margin: 0 auto;
+  width: fit-content;
+}
+
+th{
+  background-color: #343131;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
+td{
+  padding: 5px;
+}

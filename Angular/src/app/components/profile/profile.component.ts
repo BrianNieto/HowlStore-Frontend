@@ -5,6 +5,8 @@ import {PersonaModel} from "../../models/Persona.model";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import Swal from "sweetalert2";
+import {CompraModel} from "../../models/Compra.model";
+import {CompraService} from "../../services/compra.service";
 
 @Component({
   selector: 'app-profile',
@@ -20,9 +22,10 @@ export class ProfileComponent implements OnInit {
   inputPassword!: HTMLInputElement;
   nombre!:string;
   apellido!:string;
+  compras:CompraModel[] = [];
 
 
-  constructor(private service: UserService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private service: UserService, private compraService:CompraService, private formBuilder: FormBuilder, private router: Router) {
     this.profileForm = this.formBuilder.group({
       mail: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required]],
@@ -32,7 +35,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.viewProfile().subscribe(
+    if (localStorage.getItem("idUser") == null){
+      this.router.navigate([""])
+    }
+    this.service.getUser().subscribe(
       (res: any) => {
         this.inputName = document.getElementById("nombre") as HTMLInputElement;
         this.inputLastname = document.getElementById("apellido") as HTMLInputElement;
@@ -45,6 +51,11 @@ export class ProfileComponent implements OnInit {
         this.nombre = res.persona.firstname
         this.apellido = res.persona.lastname
       })
+    this.compraService.getAllComprasByUser().subscribe(
+      (res:any) => {
+        this.compras = res;
+      }
+    )
   }
 
   updateUser() {

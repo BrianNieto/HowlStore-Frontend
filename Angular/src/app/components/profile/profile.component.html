@@ -28,3 +28,24 @@
     </div>
 
 </form>
+
+
+<div class="div-tablas">
+  <h2>Mis compras</h2>
+  <table class="table">
+    <thead>
+    <th>Item</th>
+    <th>Estado Item</th>
+    <th>Fecha</th>
+    <th>Precio</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let compra of compras">
+      <td>{{compra.item.nombreItem}}</td>
+      <td>{{compra.item.estadoItem}}</td>
+      <td>{{compra.fecha}}</td>
+      <td>{{compra.item.precioItem | currency}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

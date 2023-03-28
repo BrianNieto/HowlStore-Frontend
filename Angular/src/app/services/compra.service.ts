@@ -24,4 +24,8 @@ export class CompraService {
     return this.httpClient.post(this.urlCompras, compra, this.getHttpOptions())
   }
 
+  getAllComprasByUser():any {
+    let id = localStorage.getItem("idUser")
+    return this.httpClient.get(this.urlCompras + `/all/${id}`)
+  }
 }
